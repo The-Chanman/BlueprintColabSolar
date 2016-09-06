@@ -83,8 +83,8 @@ function refresh (){
     var I2 = snapshot.val()["Item 2"];   
 
     totalSize = I1 + I2;
-
-    datastuff = [{ label: "Rec Ready", value: I1, percent: (100 * I1 / totalSize).toPrecision(3) + "%"}, { label: "Need", value: I2, percent: (100 * I2 / totalSize).toPrecision(3) + "%"}]
+    leftover = totalSize - I1;
+    datastuff = [{ label: "Rec Complete", value: I1, percent: (100 * I1 / totalSize).toPrecision(3) + "%"}, { label: "Energy Needed", value: I2, percent: (100 * I2 / totalSize).toPrecision(3) + "%"}]
 
     change(datastuff);
   });
