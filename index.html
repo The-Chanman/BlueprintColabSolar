@@ -82,7 +82,7 @@ function refresh (){
     var I1 = snapshot.val()["Item 1"];
     var I2 = snapshot.val()["Item 2"];   
 
-    totalSize = I1 + I2 + I3 + I4 + I5;
+    totalSize = I1 + I2;
 
     datastuff = [{ label: keys[0], value: I1, percent: (100 * I1 / totalSize).toPrecision(3) + "%"}, { label: keys[1], value: I2, percent: (100 * I2 / totalSize).toPrecision(3) + "%"}]
 
