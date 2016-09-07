@@ -35,10 +35,10 @@ form {
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyAxu2aKit7uOEXplMlqaGFyml0p9-nOjCg",
-    authDomain: "blueprintstorefront.firebaseapp.com",
-    databaseURL: "https://blueprintstorefront.firebaseio.com",
-    storageBucket: "blueprintstorefront.appspot.com",
+    apiKey: "AIzaSyCHKs6slep1CsLNspURqWU_zs5nRlNt2us",
+    authDomain: "colab-solar-rec.firebaseapp.com",
+    databaseURL: "https://colab-solar-rec.firebaseio.com",
+    storageBucket: "colab-solar-rec.appspot.com",
   };
   firebase.initializeApp(config);
 </script>
@@ -73,17 +73,16 @@ var color = d3.scale.ordinal()
   .domain(["Rec Process", ""])
   .range(["#4297b9", "#ffffff"]);
 var datastuff = [];
-var totalSize = 0;
+var totalSize = 0.003;
 var percent = [];
 
 function refresh (){
-  firebase.database().ref('Demand').once('value').then(function(snapshot) {
+  firebase.database().ref('current').once('value').then(function(snapshot) {
+    debugger
     var keys = Object.keys(snapshot.val());
-    var I1 = snapshot.val()["Item 1"];
-    var I2 = snapshot.val()["Item 2"];   
+    var I1 = snapshot.val()["Item 1"];   
 
-    totalSize = I1 + I2;
-    leftover = totalSize - I1;
+    var I2 = totalSize - I1;
     datastuff = [{ label: "Rec Complete", value: I1, percent: (100 * I1 / totalSize).toPrecision(3) + "%"}, { label: "Energy Needed", value: I2, percent: (100 * I2 / totalSize).toPrecision(3) + "%"}]
 
     change(datastuff);
