@@ -80,7 +80,7 @@ function refresh (){
   firebase.database().ref('current').once('value').then(function(snapshot) {
     debugger
     var keys = Object.keys(snapshot.val());
-    var I1 = snapshot.val()["Item 1"];   
+    var I1 = snapshot.val();   
 
     var I2 = totalSize - I1;
     datastuff = [{ label: "Rec Complete", value: I1, percent: (100 * I1 / totalSize).toPrecision(3) + "%"}, { label: "Energy Needed", value: I2, percent: (100 * I2 / totalSize).toPrecision(3) + "%"}]
