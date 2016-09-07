@@ -9,6 +9,17 @@
 }
 </style>
 <div id="container"></div>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCHKs6slep1CsLNspURqWU_zs5nRlNt2us",
+    authDomain: "colab-solar-rec.firebaseapp.com",
+    databaseURL: "https://colab-solar-rec.firebaseio.com",
+    storageBucket: "colab-solar-rec.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
 <script src="ProgressBar.js"></script>
 <script>
 	var bar = new ProgressBar.SemiCircle(container, {
@@ -42,10 +53,17 @@ bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '8rem';
 
 bar.animate(1.0);
-setInterval(function(){
-	bar.set(0);
-	bar.animate(1.0);
-}, 30000);
+
+var firebaseRef = firebase.database().ref('demo/history');
+firebaseRef.on('value', function(snapshot){
+  bar.set(0);
+  bar.animate(1.0);
+});
+
+// setInterval(function(){
+// 	bar.set(0);
+// 	bar.animate(1.0);
+// }, 30000);
 
 
 </script>
