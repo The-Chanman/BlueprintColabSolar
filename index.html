@@ -78,9 +78,9 @@ var datastuff = [];
 var totalSize = 0.003;
 var percent = [];
 
+
 function refresh (){
   firebase.database().ref("demo/current").once('value').then(function(snapshot) {
-    debugger
     var keys = Object.keys(snapshot.val());
     var I1 = snapshot.val();   
 
@@ -105,7 +105,7 @@ function change(data) {
     .style("fill", function(d) { return color(d.data.label); })
     .attr("class", "slice");
   slice   
-    .transition().duration(1000)
+    .transition().duration(300)
     .attrTween("d", function(d) {
       this._current = this._current || d;
       var interpolate = d3.interpolate(this._current, d);
@@ -131,7 +131,7 @@ function change(data) {
   function midAngle(d){
     return d.startAngle + (d.endAngle - d.startAngle)/2;
   }
-  text.transition().duration(1000)
+  text.transition().duration(300)
     .attrTween("transform", function(d) {
       this._current = this._current || d;
       var interpolate = d3.interpolate(this._current, d);
@@ -161,7 +161,7 @@ function change(data) {
   
   polyline.enter()
     .append("polyline");
-  polyline.transition().duration(1000)
+  polyline.transition().duration(300)
     .attrTween("points", function(d){
       this._current = this._current || d;
       var interpolate = d3.interpolate(this._current, d);
