@@ -90,7 +90,7 @@ function refresh (){
 }
 refresh();
 // change(refresh());
-var firebaseRef = firebase.database().ref('Demand');
+var firebaseRef = firebase.database().ref('current');
 firebaseRef.on('value', function(snapshot){
   refresh();
 });
