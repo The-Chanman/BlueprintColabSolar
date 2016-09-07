@@ -2006,6 +2006,7 @@ var Shape = function Shape(container, opts) {
                 top: '50%',
                 padding: 0,
                 margin: 0,
+                text-align: 'center';
                 transform: {
                     prefix: true,
                     value: 'translate(-50%, -50%)'
