@@ -79,7 +79,7 @@ var totalSize = 0.003;
 var percent = [];
 
 function refresh (){
-  firebase.database().ref("demo").once('value').then(function(snapshot) {
+  firebase.database().ref("demo/current").once('value').then(function(snapshot) {
     debugger
     var keys = Object.keys(snapshot.val());
     var I1 = snapshot.val();   
