@@ -17,7 +17,7 @@
   trailColor: '#eee',
   trailWidth: 1,
   easing: 'easeInOut',
-  duration: 30000,
+  duration: 5000,
   svgStyle: null,
   text: {
     value: '',
@@ -41,10 +41,12 @@
 bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '8rem';
 
+bar.animate(1.0);
+
 setInterval(function(){
 	bar.set(0);
 	bar.animate(1.0);
-}, 30000);
+}, 5000);
 
 
 </script>
