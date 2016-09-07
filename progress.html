@@ -54,7 +54,7 @@ bar.text.style.fontSize = '8rem';
 
 bar.animate(1.0);
 
-var firebaseRef = firebase.database().ref('demo/history');
+var firebaseRef = firebase.database().ref('demo/history/0/time');
 firebaseRef.on('value', function(snapshot){
   bar.set(0);
   bar.animate(1.0);
